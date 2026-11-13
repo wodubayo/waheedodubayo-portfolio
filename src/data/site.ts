@@ -39,7 +39,7 @@ export const experience: Role[] = [
     title: 'Software Engineer → Lead Engineer → Senior Engineer & Team Lead',
     years: '2010 – 2014, 2019 – 2023',
     summary:
-      'Grew from building scalable C#/.NET systems (99%+ uptime), to leading the CMS OASIS C→C1 compliance upgrade, to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.',
+      'Home health management software for home health agencies. Grew from building scalable C#/.NET systems (99%+ uptime), to leading the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.',
   },
   {
     company: 'Weatherford International',

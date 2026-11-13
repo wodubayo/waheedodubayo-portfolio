@@ -138,7 +138,7 @@ teams that build them.
 - **NASA (via SAIC)** · Senior Software Engineer · 2015–2019
   Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division's aircraft supplied, in C# / .NET MVC and AngularJS under CMMI — feature delivery, code and design peer reviews, test plans, and defect resolution.
 - **Cradle Solution** · Software Engineer → Lead Engineer → Senior Engineer & Team Lead · 2010–2014, 2019–2023
-  Grew from building scalable C#/.NET systems (99%+ uptime), to leading the CMS OASIS C→C1 compliance upgrade, to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.
+  Home health management software for home health agencies. Grew from building scalable C#/.NET systems (99%+ uptime), to leading the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.
 - **Weatherford International** · Software Support Analyst · 2014–2015
 - **Early career, Nigeria** · Software Engineer · 2003–2009
 
