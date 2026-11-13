@@ -15,7 +15,7 @@ Page order: Hero → Products (Grocr, Lagos, equal billing) → Applied AI (Scal
 
 I build software that turns messy real-world data into decisions.
 
-20+ years shipping production systems — now building products for households,
+Shipping production software since 2003 — now building products for households,
 cities, and coastlines.
 
 [See the products] · [GitHub](https://github.com/wodubayo) · [LinkedIn](https://linkedin.com/in/waheed-odubayo-853ba24b/)
@@ -129,9 +129,9 @@ Rule: method only — no model metrics or seabed imagery on the site.
 
 ## Engineering experience
 
-20+ years building and shipping production software — from early work in
-Nigeria to healthcare SaaS, NASA mission-critical systems, and leading the
-teams that build them.
+Building and shipping production software since 2003 — from financial ledgers in
+Nigeria to home health software, NASA aircraft operations, and surgical
+scheduling — and leading the teams that build them.
 
 - **LeanTaaS** · Software Engineer · 2023–present
   Surgical scheduling SaaS. Architecture decisions on core scheduling features; leading client data migrations so hospitals go live on the new platform with their full history.
