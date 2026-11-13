@@ -136,7 +136,7 @@ teams that build them.
 - **LeanTaaS** · Software Engineer · 2023–present
   Surgical scheduling SaaS. Architecture decisions on core scheduling features; leading client data migrations so hospitals go live on the new platform with their full history.
 - **NASA (via SAIC)** · Senior Software Engineer · 2015–2019
-  Independent verification and testing of mission-critical software under CMMI — test plans, code and design peer reviews, defect resolution.
+  Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division's aircraft supplied, in C# / .NET MVC and AngularJS under CMMI — feature delivery, code and design peer reviews, test plans, and defect resolution.
 - **Cradle Solution** · Software Engineer → Lead Engineer → Senior Engineer & Team Lead · 2010–2014, 2019–2023
   Grew from building scalable C#/.NET systems (99%+ uptime), to leading the CMS OASIS C→C1 compliance upgrade, to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.
 - **Weatherford International** · Software Support Analyst · 2014–2015

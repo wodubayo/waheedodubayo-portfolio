@@ -32,7 +32,7 @@ export const experience: Role[] = [
     title: 'Senior Software Engineer',
     years: '2015 – 2019',
     summary:
-      'Independent verification and testing of mission-critical software under CMMI — test plans, code and design peer reviews, defect resolution.',
+      'Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division’s aircraft supplied, in C# / .NET MVC and AngularJS under CMMI — feature delivery, code and design peer reviews, test plans, and defect resolution.',
   },
   {
     company: 'Cradle Solution',
