@@ -6,9 +6,9 @@ export const links = {
 };
 
 export const nav = [
-  { label: 'Products', href: '#products' },
-  { label: 'Applied AI', href: '#applied-ai' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Products', href: '/#products' },
+  { label: 'Applied AI', href: '/#applied-ai' },
+  { label: 'Experience', href: '/#experience' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -2,20 +2,10 @@
 import { Image } from 'astro:assets';
 import Tag from './Tag.astro';
 import TechList from './TechList.astro';
+import Bullets from './Bullets.astro';
 import { links } from '../data/site';
+import { lagos } from '../data/lagos';
 import heroMap from '../assets/images/lagos-hero-map.png';
-import pipeline from '../assets/images/lagos-pipeline.svg';
-import beforeAfter from '../assets/images/lagos-before-after.png';
-import candidate from '../assets/images/lagos-candidate-detail.png';
-
-const progress = [
-  'Sentinel-1 pair acquired with provenance tracking; preprocessed in ESA SNAP (orbit, calibration, terrain correction)',
-  'Backscatter change analysis across 71% of the Lagos study area',
-  '400 candidate patches (3.13 km²) with radar and terrain review attributes',
-  'Validation against independent evidence (NEMA, GDACS, geolocated imagery) under way',
-];
-
-const wide = '(min-width: 1024px) 896px, 100vw';
 ---
 
 <article id="lagos" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
@@ -23,71 +13,39 @@ const wide = '(min-width: 1024px) 896px, 100vw';
     <Tag>Geospatial pipeline</Tag>
     <Tag tone="progress">In progress</Tag>
   </div>
-  <h3 class="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
-    Lagos Flood Intelligence — mapping floods from space
-  </h3>
-  <p class="mt-4 max-w-2xl text-lg text-slate-600">
-    When heavy rain flooded Lagos on 3–4 July 2024, reports came in from Lekki, Ibeju-Lekki and
-    beyond — but no clear map of where the water went. This project builds a reproducible pipeline
-    that compares Sentinel-1 radar imagery from before and after an event to find candidate flooded
-    areas, with the long-term goal of a reusable runbook for any future flood.
-  </p>
-  <a href={links.lagosRepo} class="mt-4 inline-block font-medium text-ocean-600 hover:text-ocean-700">
-    View on GitHub →
-  </a>
+  <h3 class="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">{lagos.title}</h3>
+  <p class="mt-4 max-w-2xl text-lg text-slate-600">{lagos.intro}</p>
 
   <figure class="mt-8">
-    <Image src={heroMap} alt="Map of the Lagos coast with small candidate patches along the coastline and lagoons" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-slate-500">
-      Exploratory Sentinel-1 radar-change candidates (unvalidated), July 2024. Not a confirmed flood extent.
-    </figcaption>
+    <Image
+      src={heroMap}
+      alt="Map of the Lagos coast with small candidate patches along the coastline and lagoons"
+      widths={[640, 960, 1600]}
+      sizes="(min-width: 1024px) 896px, 100vw"
+      class="w-full rounded-lg border border-slate-200"
+      loading="lazy"
+    />
+    <figcaption class="mt-2 text-sm text-slate-500">{lagos.mapCaption}</figcaption>
   </figure>
 
   <div class="mt-10 grid gap-8 lg:grid-cols-2">
     <div>
       <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Progress so far</h4>
-      <ul class="mt-3 space-y-2 text-slate-700">
-        {
-          progress.map((item) => (
-            <li class="flex gap-2">
-              <span aria-hidden="true" class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ocean-500" />
-              <span>{item}</span>
-            </li>
-          ))
-        }
-      </ul>
+      <Bullets items={lagos.progress} />
     </div>
     <div>
-      <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Next</h4>
-      <ul class="mt-3 space-y-2 text-slate-700">
-        <li>Independent validation and accuracy assessment</li>
-        <li>Second event (July 2021)</li>
-      </ul>
-      <TechList items={['Python', 'GeoPandas', 'ESA SNAP', 'QGIS', 'Sentinel-1/2', 'NASADEM', 'Docker']} />
+      <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Why “candidates,” not “floods”</h4>
+      <p class="mt-3 text-slate-700">{lagos.whyCandidates}</p>
+      <TechList items={lagos.tech} />
     </div>
   </div>
 
-  <figure class="mt-10">
-    <Image src={pipeline} alt="Workflow: acquire, preprocess, compare, candidates, validate (incomplete)" class="w-full rounded-lg" loading="lazy" />
-  </figure>
-
-  <figure class="mt-10">
-    <Image src={beforeAfter} alt="Three radar panels of the same area: 21 June 2024, 3 July 2024, and the change between them" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-slate-500">
-      Radar backscatter on 21 June and 3 July 2024, and the change between them.
-    </figcaption>
-  </figure>
-
-  <div class="mt-10 grid items-start gap-6 lg:grid-cols-5">
-    <div class="lg:col-span-2">
-      <h4 class="text-lg font-semibold">Why “candidates,” not “floods”</h4>
-      <p class="mt-2 text-slate-700">
-        A darker radar return doesn’t prove flooding. Each patch is reviewed against terrain,
-        historical water, and outside reports before anything is called a flood.
-      </p>
-    </div>
-    <figure class="lg:col-span-3">
-      <Image src={candidate} alt="Close-up of candidate C0079 on the eastern margin of Ologe Lagoon with its review attributes" widths={[640, 960, 1200]} sizes="(min-width: 1024px) 540px, 100vw" class="w-full rounded-lg border border-slate-200" loading="lazy" />
-    </figure>
+  <div class="mt-10 flex flex-wrap gap-3">
+    <a href="/lagos" class="rounded-md bg-ocean-600 px-5 py-2.5 font-medium text-white hover:bg-ocean-700">
+      See the full pipeline →
+    </a>
+    <a href={links.lagosRepo} class="rounded-md border border-slate-300 px-5 py-2.5 font-medium hover:bg-slate-50">
+      GitHub
+    </a>
   </div>
 </article>
