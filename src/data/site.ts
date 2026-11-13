@@ -21,7 +21,7 @@ export interface Role {
 
 export const experience: Role[] = [
   {
-    company: 'CaseCtrl (acquired by LeanTaaS)',
+    company: 'LeanTaaS',
     title: 'Software Engineer',
     years: '2023 – present',
     summary:

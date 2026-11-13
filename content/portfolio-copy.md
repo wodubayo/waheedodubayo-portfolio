@@ -133,7 +133,7 @@ Rule: method only — no model metrics or seabed imagery on the site.
 Nigeria to healthcare SaaS, NASA mission-critical systems, and leading the
 teams that build them.
 
-- **CaseCtrl (acquired by LeanTaaS)** · Software Engineer · 2023–present
+- **LeanTaaS** · Software Engineer · 2023–present
   Surgical scheduling SaaS. Architecture decisions on core scheduling features; leading client data migrations so hospitals go live on the new platform with their full history.
 - **NASA (via SAIC)** · Senior Software Engineer · 2015–2019
   Independent verification and testing of mission-critical software under CMMI — test plans, code and design peer reviews, defect resolution.
