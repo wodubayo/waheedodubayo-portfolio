@@ -1,0 +1,92 @@
+---
+import TechList from './TechList.astro';
+import { links } from '../data/site';
+
+const built = [
+  { name: 'Detection', text: 'YOLOv5 detector for live scallops — small, camouflaged, often half-buried.' },
+  { name: 'Habitat segmentation', text: 'U-Net classifying every pixel as eelgrass or sand/silt, giving each image a habitat composition.' },
+  { name: 'Representation learning', text: 'GeoCLR — contrastive learning that uses each image’s GPS position to learn habitat structure from mostly unlabeled imagery.' },
+  { name: 'Integration', text: 'Detections merged with habitat masks to analyze where scallops occur relative to habitat.' },
+];
+
+const decisions = [
+  { name: 'Single-class over multi-class', text: 'Live, dead, and face-up shell classes were too sparsely labeled; focusing on live scallops concentrated the model on what matters.' },
+  { name: 'Structured augmentation for underwater light', text: 'CLAHE contrast correction, HSV color-space transforms, and rotations to counter strobe hotspots, dark corners, and color loss — applied to training data only.' },
+  { name: 'Spatially independent evaluation', text: 'Entire survey lines held out, so results reflect new locations, not memorized ones.' },
+  { name: 'Right-sized models', text: 'YOLOv5 generalized better than newer, larger variants on a small, specialized dataset.' },
+  { name: 'Bias mitigation', text: 'Identified and corrected systematic eelgrass overestimation from vignetting (15% edge crop) and camera viewing geometry.' },
+];
+---
+
+<article class="rounded-2xl bg-ocean-900 p-6 text-ocean-50 sm:p-10">
+  <p class="text-sm text-ocean-100">
+    MSc Oceanography thesis · University of Rhode Island, 2026 · with Rhode Island DEM
+  </p>
+  <h3 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+    Bay Scallop Monitoring with Computer Vision
+  </h3>
+
+  <div class="mt-8 grid gap-10 lg:grid-cols-2">
+    <div>
+      <h4 class="text-sm font-semibold uppercase tracking-wide text-ocean-100">The problem</h4>
+      <p class="mt-3 text-ocean-50/90">
+        Bay scallops in Point Judith Pond, Rhode Island, were once a 100,000+ lb/year fishery; today
+        numbers are too low to sustain one, and decades of restoration have had limited success.
+        Monitoring relies on scuba surveys and manual image review — slow, small-scale, and hard to
+        repeat. And because scallop survival is closely tied to eelgrass, counting scallops without
+        measuring habitat tells only half the story.
+      </p>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold uppercase tracking-wide text-ocean-100">What it revealed</h4>
+      <p class="mt-3 text-ocean-50/90">
+        Scallops occurred most often in <strong class="text-white">moderate eelgrass cover (30–60%)</strong>
+        — less in sparse or dense beds. That fits a balance between protection from predators
+        (lacking in sparse beds) and water exchange and oxygen (reduced in dense ones): habitat
+        <em>density</em> matters, not just presence.
+      </p>
+    </div>
+  </div>
+
+  <h4 class="mt-10 text-sm font-semibold uppercase tracking-wide text-ocean-100">What I built</h4>
+  <p class="mt-3 max-w-3xl text-ocean-50/90">
+    An end-to-end deep learning pipeline that finds scallops <em>and</em> measures the habitat
+    around them, from seafloor imagery collected by an autonomous surface vehicle along RI
+    DEM-selected transects.
+  </p>
+  <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+    {
+      built.map((b) => (
+        <li class="rounded-lg bg-white/5 p-4 ring-1 ring-white/10">
+          <p class="font-semibold text-white">{b.name}</p>
+          <p class="mt-1 text-sm text-ocean-50/80">{b.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h4 class="mt-10 text-sm font-semibold uppercase tracking-wide text-ocean-100">Engineering decisions</h4>
+  <dl class="mt-4 space-y-4">
+    {
+      decisions.map((d) => (
+        <div>
+          <dt class="font-semibold text-white">{d.name}</dt>
+          <dd class="mt-1 text-ocean-50/80">{d.text}</dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <div class="[&_li]:bg-white/10 [&_li]:text-ocean-50 [&_p]:text-ocean-100">
+    <TechList label="Tools" items={['Python', 'OpenCV', 'MATLAB', 'CVAT', 'YOLOv5', 'U-Net', 'GeoCLR']} />
+  </div>
+
+  <div class="mt-10 border-t border-white/10 pt-6">
+    <p class="text-sm text-ocean-100">
+      Data collected with RI DEM; project led by Dr. Chris Roman, URI Graduate School of Oceanography.
+    </p>
+    <a href={links.thesis} class="mt-3 inline-block font-medium text-white underline decoration-ocean-500 underline-offset-4 hover:decoration-white">
+      Read the full thesis on DigitalCommons@URI →
+    </a>
+  </div>
+</article>

@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import Tag from './Tag.astro';
+import TechList from './TechList.astro';
+import home from '../assets/images/grocr-home.jpg';
+import lists from '../assets/images/grocr-lists.jpg';
+import list from '../assets/images/grocr-list.jpg';
+import pantry from '../assets/images/grocr-pantry.jpg';
+import buddies from '../assets/images/grocr-buddies.jpg';
+import regina from '../assets/images/grocr-regina.jpg';
+
+const screens = [
+  { src: home, alt: 'Grocr home screen with pantry totals, stock watch and expiration alerts', caption: 'Home' },
+  { src: list, alt: 'A shared event shopping list showing items pending and bought, with price and store', caption: 'Shared list' },
+  { src: lists, alt: 'Grocery lists screen showing event and household lists with progress', caption: 'Lists' },
+  { src: pantry, alt: 'Pantry screen with stock levels, food class, expiry dates and calorie estimate', caption: 'Pantry' },
+  { src: buddies, alt: 'Grocery buddy groups dialog with Household, Coworkers and Iftar groups', caption: 'Buddy groups' },
+  { src: regina, alt: 'R.E.G.I.N.A. assistant screen with example voice commands and quick actions', caption: 'R.E.G.I.N.A.' },
+];
+
+const working = [
+  'Live shared lists — multiple people shopping at once, with who bought what, where, and for how much',
+  'Reusable buddy groups for households, events, and friends',
+  'Pantry inventory with stock levels, expiry alerts, and calorie estimates (Open Food Facts)',
+  'Scan to add — photograph a typed or handwritten list to transcribe it, or a receipt to match purchases to list items',
+  'R.E.G.I.N.A., a voice and text assistant: “add 2 milk to Weekend Barbecue.” Always confirms before changing anything.',
+];
+---
+
+<article id="grocr" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
+  <div class="flex flex-wrap items-center gap-2">
+    <Tag>Android</Tag>
+    <Tag tone="prototype">Prototype</Tag>
+  </div>
+  <h3 class="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">Grocr — groceries, in sync</h3>
+  <p class="mt-4 max-w-2xl text-lg text-slate-600">
+    Grocr keeps a household’s food in sync. Families, housemates, and friend groups share live
+    shopping lists and a common pantry — so nobody double-buys, forgets the milk, or finds something
+    expired at the back of the shelf.
+  </p>
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-2">
+    <div>
+      <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Working today</h4>
+      <ul class="mt-3 space-y-2 text-slate-700">
+        {
+          working.map((item) => (
+            <li class="flex gap-2">
+              <span aria-hidden="true" class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ocean-500" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Next</h4>
+      <ul class="mt-3 space-y-2 text-slate-700">
+        <li>Recipe suggestions from what’s already in the pantry</li>
+        <li>Play Store release</li>
+      </ul>
+      <TechList items={['Kotlin', 'Jetpack Compose', 'Firebase', 'Supabase', 'WebSockets']} />
+    </div>
+  </div>
+
+  <ul class="-mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:-mx-10 sm:px-10" aria-label="Grocr screenshots">
+    {
+      screens.map((s) => (
+        <li class="w-40 shrink-0 snap-start sm:w-48">
+          <Image
+            src={s.src}
+            alt={s.alt}
+            widths={[192, 384]}
+            sizes="(min-width: 640px) 192px, 160px"
+            class="rounded-xl border border-slate-200 shadow-sm"
+            loading="lazy"
+          />
+          <p class="mt-2 text-center text-sm text-slate-500">{s.caption}</p>
+        </li>
+      ))
+    }
+  </ul>
+</article>
