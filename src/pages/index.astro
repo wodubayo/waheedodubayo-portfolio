@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+
+const links = [
+  { label: 'GitHub', href: 'https://github.com/wodubayo' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/waheed-odubayo-853ba24b/' },
+];
+---
+
+<Base>
+  <main class="mx-auto max-w-3xl px-4 py-16 sm:py-24">
+    <section>
+      <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Waheed Odubayo</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+        I build software that turns messy real-world data into decisions.
+      </h1>
+      <p class="mt-6 text-lg text-slate-600">
+        20+ years shipping production systems — now building products for households, cities,
+        and coastlines.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#products" class="rounded-md bg-slate-900 px-4 py-2 text-white hover:bg-slate-700">
+          See the products
+        </a>
+        {
+          links.map((l) => (
+            <a href={l.href} class="rounded-md border border-slate-300 px-4 py-2 hover:bg-slate-50">
+              {l.label}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="products" class="mt-24">
+      <h2 class="text-2xl font-bold">Products</h2>
+      <ul class="mt-4 list-disc pl-5 text-slate-700">
+        <li>Grocr — groceries, in sync</li>
+        <li>Lagos Flood Intelligence — mapping floods from space</li>
+      </ul>
+    </section>
+
+    <section id="applied-ai" class="mt-16">
+      <h2 class="text-2xl font-bold">Applied AI</h2>
+      <p class="mt-4 text-slate-700">Bay Scallop Monitoring with Computer Vision</p>
+    </section>
+
+    <section id="experience" class="mt-16">
+      <h2 class="text-2xl font-bold">Engineering experience</h2>
+      <p class="mt-4 text-slate-700">Coming soon.</p>
+    </section>
+  </main>
+</Base>
