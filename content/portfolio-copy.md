@@ -141,6 +141,7 @@ teams that build them.
   Home health management software for home health agencies. Grew from building scalable C#/.NET systems (99%+ uptime), to leading the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.
 - **Weatherford International** · Software Support Analyst · 2014–2015
 - **Early career, Nigeria** · Software Engineer · 2003–2009
+  Built a self-balancing sales ledger system for financial accounting.
 
 **Stack:** C# / .NET · React · Node.js · Kotlin / Android · MongoDB · ArangoDB · SQL Server · AWS · Docker · Python · OpenCV
 

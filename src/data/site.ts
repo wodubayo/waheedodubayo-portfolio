@@ -50,6 +50,7 @@ export const experience: Role[] = [
     company: 'Early career, Nigeria',
     title: 'Software Engineer',
     years: '2003 – 2009',
+    summary: 'Built a self-balancing sales ledger system for financial accounting.',
   },
 ];
 
