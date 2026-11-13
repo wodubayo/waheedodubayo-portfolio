@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Tag from '../components/Tag.astro';
+import TechList from '../components/TechList.astro';
+import Bullets from '../components/Bullets.astro';
+import { links } from '../data/site';
+import { lagos } from '../data/lagos';
+import heroMap from '../assets/images/lagos-hero-map.png';
+import pipeline from '../assets/images/lagos-pipeline.svg';
+import beforeAfter from '../assets/images/lagos-before-after.png';
+import candidate from '../assets/images/lagos-candidate-detail.png';
+import coverage from '../assets/images/lagos-coverage-map.png';
+
+const wide = '(min-width: 1024px) 960px, 100vw';
+const h2 = 'text-2xl font-bold tracking-tight text-slate-900';
+---
+
+<Base
+  title="Lagos Flood Intelligence | Waheed Odubayo"
+  description="A reproducible Sentinel-1 radar change pipeline for mapping candidate flooded areas in Lagos after the July 2024 floods."
+>
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-12 sm:py-16">
+    <a href="/#products" class="text-sm font-medium text-ocean-600 hover:text-ocean-700">← All products</a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-2">
+        <Tag>Geospatial pipeline</Tag>
+        <Tag tone="progress">In progress</Tag>
+      </div>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">{lagos.title}</h1>
+      <p class="mt-6 max-w-3xl text-lg text-slate-600">{lagos.intro}</p>
+      <a href={links.lagosRepo} class="mt-4 inline-block font-medium text-ocean-600 hover:text-ocean-700">
+        View on GitHub →
+      </a>
+    </header>
+
+    <figure class="mt-10">
+      <Image src={heroMap} alt="Map of the Lagos coast with small candidate patches along the coastline and lagoons" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" />
+      <figcaption class="mt-2 text-sm text-slate-500">{lagos.mapCaption}</figcaption>
+    </figure>
+
+    <section class="mt-16">
+      <h2 class={h2}>The pipeline</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        Five stages, each producing auditable outputs: acquire a before/after Sentinel-1 pair,
+        preprocess it in ESA SNAP, compare backscatter in decibels, extract candidate patches, and
+        validate them against independent evidence.
+      </p>
+      <figure class="mt-6">
+        <Image src={pipeline} alt="Workflow: acquire, preprocess, compare, candidates, validate (incomplete)" class="w-full rounded-lg" loading="lazy" />
+      </figure>
+    </section>
+
+    <section class="mt-16">
+      <h2 class={h2}>Before, after, and the change</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        Radar sees through cloud — essential in a rainy-season flood. Open water reflects the radar
+        signal away from the satellite, so newly flooded ground tends to appear darker. Comparing
+        the same window before and after the event highlights where that darkening happened.
+      </p>
+      <figure class="mt-6">
+        <Image src={beforeAfter} alt="Three radar panels of the same area: 21 June 2024, 3 July 2024, and the change between them" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" loading="lazy" />
+        <figcaption class="mt-2 text-sm text-slate-500">
+          Radar backscatter on 21 June and 3 July 2024, and the change between them.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="mt-16 grid items-start gap-8 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <h2 class={h2}>Why “candidates,” not “floods”</h2>
+        <p class="mt-3 text-slate-700">{lagos.whyCandidates}</p>
+        <p class="mt-3 text-slate-700">
+          Candidate C0079, on the edge of Ologe Lagoon, shows why: a strong radar drop, flat
+          terrain — but it overlaps historical water, so its flood status stays unknown until
+          independent evidence settles it.
+        </p>
+      </div>
+      <figure class="lg:col-span-3">
+        <Image src={candidate} alt="Close-up of candidate C0079 on the eastern margin of Ologe Lagoon with its review attributes" widths={[640, 960, 1200]} sizes="(min-width: 1024px) 580px, 100vw" class="w-full rounded-lg border border-slate-200" loading="lazy" />
+      </figure>
+    </section>
+
+    <section class="mt-16">
+      <h2 class={h2}>Knowing what we can’t see</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        71% of the study area had usable radar measurements on both dates. The rest — mostly lagoon
+        water and a strip outside the radar footprint — is excluded, not assumed dry.
+      </p>
+      <figure class="mt-6">
+        <Image src={coverage} alt="Map of the Lagos study area showing 71.05% of pixels with usable measurements on both dates" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" loading="lazy" />
+        <figcaption class="mt-2 text-sm text-slate-500">
+          Coverage is a valid-data fraction, not a flood-accuracy score.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="mt-16 grid gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Progress so far</h2>
+        <Bullets items={lagos.progress} />
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Next</h2>
+        <Bullets items={lagos.next} />
+        <TechList items={lagos.tech} />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

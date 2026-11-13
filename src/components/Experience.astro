@@ -1,0 +1,28 @@
+---
+import TechList from './TechList.astro';
+import { experience, stack, credentials } from '../data/site';
+---
+
+<ol class="relative mt-10 space-y-8 border-l border-slate-200 pl-6">
+  {
+    experience.map((role) => (
+      <li class="relative">
+        <span aria-hidden="true" class="absolute -left-[1.85rem] top-1.5 h-3 w-3 rounded-full border-2 border-white bg-ocean-500 ring-1 ring-ocean-500" />
+        <p class="text-sm text-slate-500">{role.years}</p>
+        <h3 class="mt-1 text-lg font-semibold text-slate-900">{role.company}</h3>
+        <p class="text-slate-600">{role.title}</p>
+        {role.summary && <p class="mt-2 max-w-2xl text-slate-700">{role.summary}</p>}
+      </li>
+    ))
+  }
+</ol>
+
+<div class="mt-12 grid gap-8 sm:grid-cols-2">
+  <TechList label="Stack" items={stack} />
+  <div class="mt-6">
+    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Credentials</p>
+    <ul class="mt-2 space-y-1 text-slate-700">
+      {credentials.map((c) => <li>{c}</li>)}
+    </ul>
+  </div>
+</div>

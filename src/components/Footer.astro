@@ -1,0 +1,18 @@
+---
+import { links } from '../data/site';
+---
+
+<footer id="contact" class="border-t border-slate-200 bg-slate-50">
+  <div class="mx-auto max-w-5xl px-4 py-16">
+    <h2 class="text-2xl font-bold tracking-tight text-slate-900">Let’s talk</h2>
+    <p class="mt-3 max-w-xl text-slate-600">
+      Interested in the products, a collaboration, or just comparing notes on geospatial and
+      environmental data? Reach out.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={links.linkedin} class="rounded-md bg-ocean-600 px-5 py-2.5 font-medium text-white hover:bg-ocean-700">LinkedIn</a>
+      <a href={links.github} class="rounded-md border border-slate-300 bg-white px-5 py-2.5 font-medium hover:bg-slate-100">GitHub</a>
+    </div>
+    <p class="mt-12 text-sm text-slate-500">© {new Date().getFullYear()} Waheed Odubayo</p>
+  </div>
+</footer>

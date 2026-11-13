@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Grocr from '../components/Grocr.astro';
+import Lagos from '../components/Lagos.astro';
+import Scallop from '../components/Scallop.astro';
+import Experience from '../components/Experience.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base>
+  <Header />
+  <main>
+    <Hero />
+
+    <section id="products" class="scroll-mt-16 bg-slate-50 py-20">
+      <div class="mx-auto max-w-5xl px-4">
+        <SectionHeading
+          eyebrow="Products"
+          title="What I’m building"
+          intro="Two prototypes, two very different kinds of data — a household’s pantry and a city’s floodplain."
+        />
+        <div class="mt-12 space-y-10">
+          <Grocr />
+          <Lagos />
+        </div>
+      </div>
+    </section>
+
+    <section id="applied-ai" class="scroll-mt-16 py-20">
+      <div class="mx-auto max-w-5xl px-4">
+        <SectionHeading
+          eyebrow="Applied AI"
+          title="Computer vision under water"
+          intro="My MSc research: teaching models to find scallops — and measure their habitat — in seafloor imagery."
+        />
+        <div class="mt-12">
+          <Scallop />
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="scroll-mt-16 border-t border-slate-200 py-20">
+      <div class="mx-auto max-w-5xl px-4">
+        <SectionHeading
+          eyebrow="Experience"
+          title="Production engineering since 2003"
+          intro="From financial ledgers in Nigeria to home health software, NASA aircraft operations, and surgical scheduling — and leading the teams that build them."
+        />
+        <Experience />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
