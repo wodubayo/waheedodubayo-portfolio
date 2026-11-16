@@ -33,14 +33,14 @@ export const experience: Role[] = [
     title: 'Senior Software Engineer',
     years: '2015 – 2019',
     summary:
-      'Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division’s aircraft supplied, in C# / .NET MVC and AngularJS under CMMI — feature delivery, code and design peer reviews, test plans, and defect resolution.',
+      'Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division’s aircraft supplied, in C# / .NET MVC and AngularJS under CMMI. Work covered feature delivery, code and design reviews, test plans, and defect fixes.',
   },
   {
     company: 'Cradle Solution',
     title: 'Software Engineer → Lead Engineer → Senior Engineer & Team Lead',
     years: '2010 – 2014, 2019 – 2023',
     summary:
-      'Home health management software for home health agencies. Grew from building scalable C#/.NET systems (99%+ uptime), to leading the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.',
+      'Home health management software for home health agencies. Started out building C#/.NET systems (99%+ uptime), then led the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), and later ran Scrum delivery for onshore and offshore teams while still writing React, Node, and ArangoDB code on AWS.',
   },
   {
     company: 'Weatherford International',
@@ -71,6 +71,6 @@ export const stack = [
 
 export const credentials = [
   'AWS Certified Developer',
-  'BS Computer Science — UH-Downtown',
-  'MS Oceanography — University of Rhode Island, 2026',
+  'BS Computer Science, UH-Downtown',
+  'MS Oceanography, University of Rhode Island, 2026',
 ];

@@ -58,7 +58,7 @@ const h2 = 'text-2xl font-bold tracking-tight text-slate-900';
     <section class="mt-16">
       <h2 class={h2}>Before, after, and the change</h2>
       <p class="mt-3 max-w-3xl text-slate-700">
-        Radar sees through cloud — essential in a rainy-season flood. Open water reflects the radar
+        Radar sees through cloud, which matters during a rainy-season flood. Open water reflects the radar
         signal away from the satellite, so newly flooded ground tends to appear darker. Comparing
         the same window before and after the event highlights where that darkening happened.
       </p>
@@ -75,8 +75,8 @@ const h2 = 'text-2xl font-bold tracking-tight text-slate-900';
         <h2 class={h2}>Why “candidates,” not “floods”</h2>
         <p class="mt-3 text-slate-700">{lagos.whyCandidates}</p>
         <p class="mt-3 text-slate-700">
-          Candidate C0079, on the edge of Ologe Lagoon, shows why: a strong radar drop, flat
-          terrain — but it overlaps historical water, so its flood status stays unknown until
+          Candidate C0079, on the edge of Ologe Lagoon, is a good example. It has a strong radar drop
+          and flat terrain, but it overlaps historical water, so its status stays unknown until
           independent evidence settles it.
         </p>
       </div>
@@ -86,10 +86,11 @@ const h2 = 'text-2xl font-bold tracking-tight text-slate-900';
     </section>
 
     <section class="mt-16">
-      <h2 class={h2}>Knowing what we can’t see</h2>
+      <h2 class={h2}>Coverage gaps</h2>
       <p class="mt-3 max-w-3xl text-slate-700">
-        71% of the study area had usable radar measurements on both dates. The rest — mostly lagoon
-        water and a strip outside the radar footprint — is excluded, not assumed dry.
+        71% of the study area had usable radar measurements on both dates. The rest, mostly lagoon
+        water and a strip outside the radar footprint, is left out of the analysis rather than
+        assumed dry.
       </p>
       <figure class="mt-6">
         <Image src={coverage} alt="Map of the Lagos study area showing 71.05% of pixels with usable measurements on both dates" widths={[640, 960, 1600]} sizes={wide} class="w-full rounded-lg border border-slate-200" loading="lazy" />
