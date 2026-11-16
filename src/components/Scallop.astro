@@ -3,16 +3,16 @@ import TechList from './TechList.astro';
 import { links } from '../data/site';
 
 const built = [
-  { name: 'Detection', text: 'YOLOv5 detector for live scallops — small, camouflaged, often half-buried.' },
+  { name: 'Detection', text: 'YOLOv5 detector for live scallops, which are small, camouflaged, and often half-buried.' },
   { name: 'Habitat segmentation', text: 'U-Net classifying every pixel as eelgrass or sand/silt, giving each image a habitat composition.' },
-  { name: 'Representation learning', text: 'GeoCLR — contrastive learning that uses each image’s GPS position to learn habitat structure from mostly unlabeled imagery.' },
+  { name: 'Representation learning', text: 'GeoCLR, a contrastive learning method that uses each image’s GPS position to learn habitat structure from mostly unlabeled imagery.' },
   { name: 'Integration', text: 'Detections merged with habitat masks to analyze where scallops occur relative to habitat.' },
 ];
 
 const decisions = [
-  { name: 'Single-class over multi-class', text: 'Live, dead, and face-up shell classes were too sparsely labeled; focusing on live scallops concentrated the model on what matters.' },
-  { name: 'Structured augmentation for underwater light', text: 'CLAHE contrast correction, HSV color-space transforms, and rotations to counter strobe hotspots, dark corners, and color loss — applied to training data only.' },
-  { name: 'Spatially independent evaluation', text: 'Entire survey lines held out, so results reflect new locations, not memorized ones.' },
+  { name: 'Single-class over multi-class', text: 'There were too few labels for dead and face-up shells to train them as separate classes, so the model detects live scallops only.' },
+  { name: 'Structured augmentation for underwater light', text: 'CLAHE contrast correction, HSV color-space transforms, and rotations to counter strobe hotspots, dark corners, and color loss. Applied to training data only.' },
+  { name: 'Spatially independent evaluation', text: 'Whole survey lines were held out for testing, so results are measured on locations the model never saw.' },
   { name: 'Right-sized models', text: 'YOLOv5 generalized better than newer, larger variants on a small, specialized dataset.' },
   { name: 'Bias mitigation', text: 'Identified and corrected systematic eelgrass overestimation from vignetting (15% edge crop) and camera viewing geometry.' },
 ];
@@ -32,25 +32,25 @@ const decisions = [
       <p class="mt-3 text-ocean-50/90">
         Bay scallops in Point Judith Pond, Rhode Island, were once a 100,000+ lb/year fishery; today
         numbers are too low to sustain one, and decades of restoration have had limited success.
-        Monitoring relies on scuba surveys and manual image review — slow, small-scale, and hard to
-        repeat. And because scallop survival is closely tied to eelgrass, counting scallops without
-        measuring habitat tells only half the story.
+        Monitoring relies on scuba surveys and manual image review, which are slow, cover small areas,
+        and are hard to repeat. Scallop survival is also closely tied to eelgrass, so a count is much
+        less useful without habitat data alongside it.
       </p>
     </div>
     <div>
       <h4 class="text-sm font-semibold uppercase tracking-wide text-ocean-100">What it revealed</h4>
       <p class="mt-3 text-ocean-50/90">
         Scallops occurred most often in <strong class="text-white">moderate eelgrass cover (30–60%)</strong>
-        — less in sparse or dense beds. That fits a balance between protection from predators
-        (lacking in sparse beds) and water exchange and oxygen (reduced in dense ones): habitat
-        <em>density</em> matters, not just presence.
+        and less often in sparse or dense beds. A likely reason is a trade-off: sparse beds give less
+        protection from predators, while dense beds cut down water exchange and oxygen. How much
+        eelgrass there is makes a difference, as well as whether it’s there at all.
       </p>
     </div>
   </div>
 
   <h4 class="mt-10 text-sm font-semibold uppercase tracking-wide text-ocean-100">What I built</h4>
   <p class="mt-3 max-w-3xl text-ocean-50/90">
-    An end-to-end deep learning pipeline that finds scallops <em>and</em> measures the habitat
+    A deep learning pipeline that finds scallops <em>and</em> measures the habitat
     around them, from seafloor imagery collected by an autonomous surface vehicle along RI
     DEM-selected transects.
   </p>

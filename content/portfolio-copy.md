@@ -15,8 +15,9 @@ Page order: Hero → Products (Grocr, Lagos, equal billing) → Applied AI (Scal
 
 I build software that turns messy real-world data into decisions.
 
-Shipping production software since 2003 — now building products for households,
-cities, and coastlines.
+I've shipped production software since 2003. Right now I'm building a shared
+grocery app and a flood-mapping pipeline for Lagos, and I recently finished an
+MSc applying computer vision to scallop surveys.
 
 [See the products] · [GitHub](https://github.com/wodubayo) · [LinkedIn](https://linkedin.com/in/waheed-odubayo-853ba24b/)
 
@@ -24,19 +25,19 @@ cities, and coastlines.
 
 ## Products
 
-### Grocr — groceries, in sync
+### Grocr
 *Android · Prototype*
 
-Grocr keeps a household's food in sync. Families, housemates, and friend
-groups share live shopping lists and a common pantry — so nobody double-buys,
-forgets the milk, or finds something expired at the back of the shelf.
+Grocr is a shared grocery list and pantry for families, housemates, and friend
+groups. Everyone sees the same list as it changes, so you don't buy milk twice
+or find expired yogurt at the back of the fridge.
 
 **Working today**
-- Live shared lists — multiple people shopping at once, with who bought what, where, and for how much
+- Live shared lists: several people can shop at once, and the list shows who bought what, where, and for how much
 - Reusable buddy groups for households, events, and friends
 - Pantry inventory with stock levels, expiry alerts, and calorie estimates (Open Food Facts)
-- Scan to add — photograph a typed or handwritten list to transcribe it, or a receipt to match purchases to list items
-- R.E.G.I.N.A. — a voice and text assistant: "add 2 milk to Weekend Barbecue." Always confirms before changing anything.
+- Scan to add: photograph a typed or handwritten list to transcribe it, or a receipt to match purchases to list items
+- R.E.G.I.N.A., a voice and text assistant: "add 2 milk to Weekend Barbecue." Always confirms before changing anything.
 
 **Next:** recipe suggestions from what's already in the pantry · Play Store release
 
@@ -47,16 +48,16 @@ grocr-buddies.jpg, grocr-regina.jpg
 
 Optional polish: crop phone status bars from screenshots.
 
-### Lagos Flood Intelligence — mapping floods from space
+### Lagos Flood Intelligence
 *Geospatial pipeline · In progress* · [GitHub](https://github.com/wodubayo/lagos-flood-intelligence)
 
 ![](images/lagos-hero-map.png)
 
-When heavy rain flooded Lagos on 3–4 July 2024, reports came in from Lekki,
-Ibeju-Lekki and beyond — but no clear map of where the water went. This project
-builds a reproducible pipeline that compares Sentinel-1 radar imagery from
-before and after an event to find candidate flooded areas, with the long-term
-goal of a reusable runbook for any future flood.
+When heavy rain flooded Lagos on 3–4 July 2024, there were reports from Lekki,
+Ibeju-Lekki and other areas, but no clear map of where the water went. This
+project is a reproducible pipeline that compares Sentinel-1 radar images from
+before and after a flood to find candidate flooded areas. The longer-term goal
+is a runbook that can be reused for future floods.
 
 ![](images/lagos-pipeline.svg)
 
@@ -88,33 +89,34 @@ Rule: never claim accuracy, detection rate, or verified flooded area.
 
 ---
 
-## Applied AI — Bay Scallop Monitoring with Computer Vision
+## Applied AI: Bay Scallop Monitoring with Computer Vision
 *MSc Oceanography thesis · University of Rhode Island, 2026 · with Rhode Island DEM*
 
 **The problem.** Bay scallops in Point Judith Pond, Rhode Island, were once a
 100,000+ lb/year fishery; today numbers are too low to sustain one, and decades
 of restoration have had limited success. Monitoring relies on scuba surveys and
-manual image review — slow, small-scale, and hard to repeat. And because
-scallop survival is closely tied to eelgrass habitat, counting scallops without
-measuring habitat tells only half the story.
+manual image review, which are slow, cover small areas, and are hard to repeat.
+Scallop survival is also closely tied to eelgrass, so a count is much less
+useful without habitat data alongside it.
 
-**What I built.** An end-to-end deep learning pipeline that finds scallops
+**What I built.** A deep learning pipeline that finds scallops
 *and* measures the habitat around them, from seafloor imagery collected by an
 autonomous surface vehicle along RI DEM-selected transects:
-- **Detection** — YOLOv5 detector for live scallops (small, camouflaged, often half-buried)
-- **Habitat segmentation** — U-Net classifying every pixel as eelgrass or sand/silt, giving each image a habitat composition
-- **Representation learning** — GeoCLR, contrastive learning that uses each image's GPS position to learn habitat structure from mostly unlabeled imagery
-- **Integration** — detections merged with habitat masks to analyze where scallops occur relative to habitat
+- **Detection:** YOLOv5 detector for live scallops, which are small, camouflaged, and often half-buried
+- **Habitat segmentation:** U-Net classifying every pixel as eelgrass or sand/silt, giving each image a habitat composition
+- **Representation learning:** GeoCLR, a contrastive learning method that uses each image's GPS position to learn habitat structure from mostly unlabeled imagery
+- **Integration:** detections merged with habitat masks to analyze where scallops occur relative to habitat
 
 **What it revealed.** Scallops occurred most often in **moderate eelgrass
-cover (30–60%)** — less in sparse or dense beds. That fits a balance between
-protection from predators (lacking in sparse beds) and water exchange and
-oxygen (reduced in dense ones): habitat *density* matters, not just presence.
+cover (30–60%)** and less often in sparse or dense beds. A likely reason is a
+trade-off: sparse beds give less protection from predators, while dense beds
+cut down water exchange and oxygen. How much eelgrass there is makes a
+difference, as well as whether it's there at all.
 
 **Engineering decisions**
-- **Single-class over multi-class.** Live/dead/face-up shell classes were too sparsely labeled; focusing on live scallops concentrated the model on what matters.
-- **Structured augmentation for underwater light.** CLAHE contrast correction, HSV color-space transforms, and rotations to counter strobe hotspots, dark corners, and color loss — applied to training data only.
-- **Spatially independent evaluation.** Entire survey lines held out, so results reflect new locations, not memorized ones.
+- **Single-class over multi-class.** There were too few labels for dead and face-up shells to train them as separate classes, so the model detects live scallops only.
+- **Structured augmentation for underwater light.** CLAHE contrast correction, HSV color-space transforms, and rotations to counter strobe hotspots, dark corners, and color loss. Applied to training data only.
+- **Spatially independent evaluation.** Whole survey lines were held out for testing, so results are measured on locations the model never saw.
 - **Right-sized models.** YOLOv5 generalized better than newer, larger variants on a small, specialized dataset.
 - **Bias mitigation.** Identified and corrected systematic eelgrass overestimation from vignetting (15% edge crop) and camera viewing geometry.
 
@@ -123,22 +125,21 @@ oxygen (reduced in dense ones): habitat *density* matters, not just presence.
 *Data collected with RI DEM; project led by Dr. Chris Roman, URI Graduate School of Oceanography.*
 **[Explore the project site →](https://scallops.waheedodubayo.dev/)** · **[Read the full thesis on DigitalCommons@URI →](https://digitalcommons.uri.edu/theses/2719/)**
 
-Rule: method only — no model metrics or seabed imagery on the site.
+Rule: method only. No model metrics or seabed imagery on the site.
 
 ---
 
 ## Engineering experience
 
-Building and shipping production software since 2003 — from financial ledgers in
-Nigeria to home health software, NASA aircraft operations, and surgical
-scheduling — and leading the teams that build them.
+I've worked on financial ledgers in Nigeria, home health software, NASA aircraft
+parts inventory, and surgical scheduling, and led engineering teams along the way.
 
 - **LeanTaaS** · Software Engineer · 2023–present
   Surgical scheduling SaaS. Architecture decisions on core scheduling features; leading client data migrations so hospitals go live on the new platform with their full history.
 - **NASA (via SAIC)** · Senior Software Engineer · 2015–2019
-  Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division's aircraft supplied, in C# / .NET MVC and AngularJS under CMMI — feature delivery, code and design peer reviews, test plans, and defect resolution.
+  Aircraft Operations Division (AOD): built and maintained the parts ordering and inventory system that keeps the division's aircraft supplied, in C# / .NET MVC and AngularJS under CMMI. Work covered feature delivery, code and design reviews, test plans, and defect fixes.
 - **Cradle Solution** · Software Engineer → Lead Engineer → Senior Engineer & Team Lead · 2010–2014, 2019–2023
-  Home health management software for home health agencies. Grew from building scalable C#/.NET systems (99%+ uptime), to leading the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), to running Scrum delivery for onshore and offshore teams while staying hands-on in React, Node, and ArangoDB on AWS.
+  Home health management software for home health agencies. Started out building C#/.NET systems (99%+ uptime), then led the upgrade to CMS OASIS-C1 (the Medicare home health assessment standard), and later ran Scrum delivery for onshore and offshore teams while still writing React, Node, and ArangoDB code on AWS.
 - **Weatherford International** · Software Support Analyst · 2014–2015
 - **Early career, Nigeria** · Software Engineer · 2003–2004
   Built a self-balancing sales ledger system for financial accounting.
