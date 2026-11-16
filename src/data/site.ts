@@ -3,6 +3,7 @@ export const links = {
   linkedin: 'https://linkedin.com/in/waheed-odubayo-853ba24b/',
   lagosRepo: 'https://github.com/wodubayo/lagos-flood-intelligence',
   thesis: 'https://digitalcommons.uri.edu/theses/2719/',
+  scallops: 'https://scallops.waheedodubayo.dev/',
 };
 
 export const nav = [

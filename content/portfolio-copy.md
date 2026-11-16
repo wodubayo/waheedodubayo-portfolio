@@ -121,7 +121,7 @@ oxygen (reduced in dense ones): habitat *density* matters, not just presence.
 **Tools:** Python · OpenCV · MATLAB · CVAT · YOLOv5 · U-Net · GeoCLR
 
 *Data collected with RI DEM; project led by Dr. Chris Roman, URI Graduate School of Oceanography.*
-**[Read the full thesis on DigitalCommons@URI →](https://digitalcommons.uri.edu/theses/2719/)**
+**[Explore the project site →](https://scallops.waheedodubayo.dev/)** · **[Read the full thesis on DigitalCommons@URI →](https://digitalcommons.uri.edu/theses/2719/)**
 
 Rule: method only — no model metrics or seabed imagery on the site.
 
